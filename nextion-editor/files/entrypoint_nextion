@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+USER_PASSWD=${USER_PASSWD:-wineuser}
+USER_PASSWD_HASHED="$(openssl passwd -1 -salt "$(openssl rand -base64 6)" "${USER_PASSWD}")"
+usermod --password "${USER_PASSWD_HASHED}" wineuser
+
+if [ -n "${DISABLE_INTERNET}" ]; then
+  echo "nameserver 0.0.0.0" > /etc/resolv.conf
+fi
+
+exec /usr/bin/entrypoint "$@"

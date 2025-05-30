@@ -1,4 +1,4 @@
-FROM scottyhardy/docker-wine:stable-10.0
+FROM scottyhardy/docker-wine:stable-10.0-20250323
 
 COPY data /home/wineuser/data
 
@@ -24,4 +24,10 @@ RUN (RDP_SERVER=invalid /usr/bin/entrypoint || true) && \
   mv ahk/UIAutomation-* ahk/uia && \
   chown -R wineuser:wineuser /home/wineuser/.wine/drive_c/data
 
-ENTRYPOINT ["/usr/bin/entrypoint"]
+COPY files/Desktop /home/wineuser/Desktop
+COPY files/entrypoint_nextion /usr/bin/entrypoint_nextion
+
+RUN ln -s /home/wineuser/.wine /home/wineuser/Desktop/WineRoot && \
+    chmod +x /usr/bin/entrypoint_nextion
+
+ENTRYPOINT ["/usr/bin/entrypoint_nextion"]

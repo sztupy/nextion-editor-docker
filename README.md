@@ -35,10 +35,10 @@ After the container has been built you can start up Wine in RDP mode using
 ```sh
 docker run -it \
   --rm \
-  --hostname="$(hostname)" \
+  --hostname="nextion-editor" \
   --env="RDP_SERVER=yes" \
   --publish="3389:3389/tcp" \
-  sztupy/nextion-editor /bin/bash
+  sztupy/nextion-editor:latest
 ```
 
 Once started you can connect to this container via Remote Desktop on `localhost:3389`. Username and password is `wineuser`. After login you can start a terminal and run
@@ -51,7 +51,7 @@ This will start up the editor. Note that audio and video features will be disabl
 
 ## Run command line mode
 
-The container includes AHK and UIAutomation to automate some common tasks without needing a GUI or any manual intervention. Most scripts will start up Nextion, click around the GUI to do their work, and finally put the resulting files under `/home/wineuser/.wine/drive_c` so they can then be downloaded from the container. While the scripts generally try to be clever, this is not always possible and might resort to mouse clicks on specific locatons on the screen. Generally all scripts expect Nextion to run under a resolution of 1024x768.
+The container includes AHK and UIAutomation to automate some common tasks without needing a GUI or any manual intervention. Most scripts will start up Nextion, click around the GUI to do their work, and finally put the resulting files under `/app` so they can then be downloaded from the container. While the scripts generally try to be clever, this is not always possible and might resort to mouse clicks on specific locatons on the screen. Generally all scripts expect Nextion to run under a resolution of 1024x768.
 
 ### Compile / Build TFT files from HMI
 

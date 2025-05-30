@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Nextion Editor
+Comment=
+Exec=wine 'C:\\data\\nextion\\NextionEditor.exe'
+Icon=youtube
+Path=
+Terminal=false
+StartupNotify=false

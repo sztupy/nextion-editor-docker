@@ -25,4 +25,4 @@ if ! [ -f data/nextion.zip ]; then
     curl -L --output data/nextion.zip https://nextion.tech/download/nextion-setup-v1-67-1.zip
 fi
 
-docker build --progress=plain -t nextion-runner .
+docker build --progress=plain -t sztupy/nextion-editor:latest .

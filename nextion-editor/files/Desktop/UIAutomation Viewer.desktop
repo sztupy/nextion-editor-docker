@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=UIAutomation Viewer
+Comment=
+Exec=wine 'C:\\data\\ahk\\AutoHotkeyU32.exe' 'C:\\data\\ahk\\uia\\UIAViewer.ahk'
+Icon=ccsm
+Path=/home/wineuser/.wine/drive_c/data/ahk/uia
+Terminal=false
+StartupNotify=false
