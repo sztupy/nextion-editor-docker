@@ -3,38 +3,86 @@
 
 FileAppend Started processing`n, *
 
-FileAppend Waiting for menubar to appear`n, *
+FileAppend Waiting for Page Panels to load `n, *
 
-MenuBar := FindWithName("AutomationId=bar5", "bar5") ;
-bounds := MenuBar.CurrentBoundingRectangle ;
+; Clicking the boot page
+ClickElementAt("Page Panels", "AutomationId=colListBox1 AND IsEnabled=1", 10, 15) ;
 
-FileAppend % "MenuBar found: " bounds.t " `n", *
+; Deleting old images
+FileAppend Deleting old images `n, *
 
-FileAppend % "Click File `n", *
+PicturePanel := FindElement("AutomationId=picListBox0 AND IsEnabled=1")
+PicturePanel.SetFocus() ;
+PicturePanel.Click("right") ;
 
-MouseMove, bounds.l + 5, bounds.t + 5 ;
-Sleep 2000 ;
+SendInput {Down}
+Sleep 100
+SendInput {Down}
+Sleep 100
+SendInput {Down}
+Sleep 100
+SendInput {Down}
+Sleep 100
+SendInput {Down}
+Sleep 100
+SendInput {Down}
+Sleep 100
+SendInput {Enter}
 
-Click % bounds.l + 5 " " bounds.t + 5 ;
-Sleep 2000 ;
+; Confirm
 
-FileAppend % "Click TFT `n", *
+FileAppend Confirm to delete `n, *
 
-Sleep 2000 ;
+Warning := FindElement("AutomationID=pp1 AND Name=Yes") ;
+Warning.SetFocus() ;
+Warning.Click("left") ;
 
-MouseMove, bounds.l + 10, bounds.t + 15 ;
-Click % bounds.l + 10 " " bounds.t + 15 ;
+Sleep 2000
 
-Sleep 2000 ;
+; Add images
 
-FileAppend % "Save file `n", *
+FileAppend Add images `n, *
 
-SaveButton := FindWithName("AutomationId=buttonX2","Output") ;
-SaveButton.SetFocus() ;
-SaveButton.Click("left") ;
+PicturePanel.SetFocus() ;
+PicturePanel.Click("right") ;
 
-FileAppend % "Wait for save to finish `n", *
+SendInput {Down}
+Sleep 100
+SendInput {Enter}
 
-ElementGone("AutomationId=buttonX2") ;
+FileAppend Import dialog `n, *
+
+Dialog := FindElement("LocalizedControlType=dialog AND Name=Open") ;
+
+SendInput "C:\pics\0.png"{Space}
+
+Sleep 100
+
+Loop, 47 {
+    if (A_Index = 32) {
+        SendInput "C:\pics\%A_Index%.jpg"{Space}
+    } Else {
+        SendInput "C:\pics\%A_Index%.png"{Space}
+    }    
+    Sleep 100
+}
+
+Sleep 1000
+
+SendInput {Enter}
+
+FileAppend Waiting for import `n, *
+
+Warning := FindElement("AutomationID=pp2 AND Name=OK") ;
+Warning.SetFocus() ;
+Warning.Click("left") ;
+
+Sleep 500
+
+; Initiating save
+
+Click 250 250
+
+SaveFile() ;
 
 ExitApp
