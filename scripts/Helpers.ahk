@@ -38,6 +38,34 @@ ElementGone(expr) {
   return el
 }
 
+ResetWarning() {
+  Warning := FindElement("AutomationID=pp2 AND Name=OK") ;
+  Warning.SetFocus() ;
+  Warning.Click("left") ;
+}
+
+Args( CmdLine := "", Skip := 0 ) {
+  ; By SKAN,  http://goo.gl/JfMNpN,  CD:23/Aug/2014 | MD:24/Aug/2014
+  Local pArgs := 0, nArgs := 0, A := []
+  
+  pArgs := DllCall( "Shell32\CommandLineToArgvW", "WStr",CmdLine, "PtrP",nArgs, "Ptr" ) 
+
+  Loop % ( nArgs ) 
+     If ( A_Index > Skip ) 
+       A[ A_Index - Skip ] := StrGet( NumGet( ( A_Index - 1 ) * A_PtrSize + pArgs ), "UTF-16" )  
+
+  Return A,   A[0] := nArgs - Skip,   DllCall( "LocalFree", "Ptr",pArgs )  
+}
+
+GetArgs() {
+  CmdLine := DllCall( "GetCommandLine", "Str" )
+  Skip    := ( A_IsCompiled ? 1 : 2 )
+
+  argv    := Args( CmdLine, Skip )
+
+  return argv ;
+}
+
 FindWithName(expr, name) {
   startTime := A_TickCount
   el := FindElement(expr) ;
@@ -50,6 +78,43 @@ FindWithName(expr, name) {
   return el
 }
 
-ResetWarning() {
-    FindWithName("AutomationID=pp2","OK") ;
+ClickElementAt(name, expr, left, top) {
+  FileAppend % "Waiting for element: " name " `n", *
+
+  Panel := FindElement(expr) ;
+  Bounds := Panel.CurrentBoundingRectangle ;
+
+  Sleep 2000
+
+  FileAppend Clicking at location `n, *
+  MouseMove, Bounds.l + left, Bounds.t + top ;
+  Click % Bounds.l + left " " Bounds.t + top ;
+
+  Sleep 2000
+}
+
+SaveFile() {
+  SendInput, ^s
+
+  Sleep 2000 ;
+
+  ; Enter the first item of the menu - TFT Ouput
+  SendInput {Alt down}
+  Sleep 100 ;
+  SendInput {Alt up}
+  Sleep 500 ;
+  SendInput {Enter}
+  Sleep 500 ;
+  SendInput {Enter}
+  Sleep 500 ;
+
+  FileAppend % "Save file `n", *
+
+  SaveButton := FindElement("AutomationId=buttonX2 AND Name=Output") ;
+  SaveButton.SetFocus() ;
+  SaveButton.Click("left") ;
+
+  FileAppend % "Wait for save to finish `n", *
+
+  ElementGone("AutomationId=buttonX2") ;
 }

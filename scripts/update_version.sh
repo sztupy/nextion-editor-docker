@@ -11,8 +11,9 @@ wine 'C:\data\nextion\NextionEditor.exe' 'C:\data\input.hmi' &
 
 wine ../AutoHotkeyU32.exe ResetWarning.ahk
 
-wine ../AutoHotkeyU32.exe Compile.ahk
+wine ../AutoHotkeyU32.exe UpdateVersion.ahk $1
 
 sudo cp /home/wineuser/.wine/drive_c/users/wineuser/AppData/Roaming/Nextion\ Editor/work/*/output/*.tft /app/input/output.tft
+sudo cp /home/wineuser/.wine/drive_c/data/input.hmi /app/input/output.hmi
 
 exit

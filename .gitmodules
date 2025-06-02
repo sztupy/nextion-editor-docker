@@ -1,0 +1,3 @@
+[submodule "NSPanel_HA_Blueprint"]
+	path = NSPanel_HA_Blueprint
+	url = git@github.com:sztupy/NSPanel_HA_Blueprint.git
