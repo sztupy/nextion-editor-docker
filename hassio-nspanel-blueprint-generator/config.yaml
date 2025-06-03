@@ -1,0 +1,30 @@
+name: "NSPanel Blueprint Background Generator"
+description: >-
+  Generates NSPanel Blueprint compatible Nextion TFT files with your custom background.
+url: "https://github.com/sztupy/nextion-editor-docker"
+slug: "nspanel-blueprint-generator"
+init: false
+arch:
+  - amd64
+map:
+  - type: homeassistant_config
+    read_only: False
+    path: /haconfig
+options:
+  main: "living-room"
+  configs:
+    - name: living-room
+      result: nspanel_living_room.tft
+      base: eu
+      background: /nspanel-generator/living_room.png    
+schema:
+  main: string
+  configs:
+    - name: string
+      result: string
+      base: list(eu|us|usland|eucjk|uscjk|uslandcjk)
+      background: string
+startup: once
+boot: manual_only
+image: docker.io/sztupy/nextion-hassio
+version: 0.0.1

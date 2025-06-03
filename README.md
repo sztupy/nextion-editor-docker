@@ -14,7 +14,8 @@ Hassio Add-on link:
 This repository contains the following projects:
 
 * `nextion-editor`: Base docker image containing Nextion Editor and automtion helper scripts
-* `scripts`: Docker image additonally supporting some basic actions to be done in an automated way against HMI files
+* `nextion-scripts`: Docker image additonally supporting some basic actions to be done in an automated way against HMI files
+* `nextion-hassio`: The docker container for the Home Assistant Add-on
 * `hassio-nspanel-blueprint-generator`: Home Assistant Add-on to help build NSPanel TFT files with different backgrounds locally
 
 ## `nextion-editor`
@@ -119,4 +120,8 @@ This will create screenshots of what's happening on the screen in your local fol
 
 ## `hassio-nspanel-blueprint-generator`
 
+Install link for the Add-on:
 
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsztupy%2Fnextion-editor-docker)
+
+Please see the [Add-on readme](hassio-nspanel-blueprint-generator/README.md) for more details

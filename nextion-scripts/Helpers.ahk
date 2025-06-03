@@ -11,10 +11,15 @@ FindElement(expr) {
     Try {
       el := Root.FindFirstBy(expr) ;
     } catch e {
-      FileAppend Error during enumeration %e%`n, *
+      FileAppend Error during enumeration %e% retrying...`n, *
     }
     Root := UIA.GetRootElement() ;
     Sleep, 1000
+  }
+
+  if (!el) {
+    FileAppend Could not find element %expr% Exiting`n, *
+    ExitApp, 1
   }
   return el
 }
@@ -30,7 +35,7 @@ ElementGone(expr) {
     Try {
       el := Root.FindFirstBy(expr) ;
     } catch e {
-      FileAppend Error during enumeration %e%`n, *
+      FileAppend Error during enumeration %e% retrying...`n, *
     }
     Root := UIA.GetRootElement() ;
     Sleep, 1000
