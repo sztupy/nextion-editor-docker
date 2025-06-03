@@ -4,7 +4,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
 > **Note:** This addon currently only supports `amd64` as a platform, for example a Home Assistant setup installed on an Intel NUC. This will not yet work on any ARM based computers, for example on Raspberry Pi based installs, nor on Home Assitant Green!
 
-> **Note:** This addon requires around 2-3 GB of disk space to install
+> **Note:** This addon requires around 2-3 GB of disk space to install, and at least 4GB of RAM to function properly, but 8GB is recommended.
 
 ## Setup
 
@@ -96,6 +96,6 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    
    Once opened change the "Update TFT Display - Model" setting to "Use nextion_update_url", then finally click the "Press" button on "Update TFT Display"
    
-   ![Screenshot of the ESPHome settings you need to make](https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/hassio-nspanel-blueprint-generator/esphome-update.png)
+   ![Screenshot of the ESPHome settings you need to make](https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/esphome-update.png)
 
 7. Wait for the Upload to finish. If all goes well your panel will now use the updated background.
