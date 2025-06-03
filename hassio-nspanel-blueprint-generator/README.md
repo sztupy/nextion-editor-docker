@@ -90,7 +90,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    
    then you should restart the add-on, so it can retry.
    
-   If it still doesn't work after 2-3 retries, and always hangs at the same place, then [please create a bugreport](https://github.com/sztupy/nextion-editor-docker/issues) with the contents of your log and the type of machine you have.
+   If it still doesn't work after a few retries, espcially if it always hangs at the same place, then [please create a bugreport](https://github.com/sztupy/nextion-editor-docker/issues) with the contents of your log and the type of machine you have.
 
 6. If it did generate the file, then go to Settings -> Devices -> ESPHome, and select the NSPanel device.
    
