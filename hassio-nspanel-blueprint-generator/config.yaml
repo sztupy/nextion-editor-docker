@@ -18,12 +18,12 @@ options:
       base: eu
       background: /nspanel-generator/living_room.png    
 schema:
-  main: string
+  main: str
   configs:
-    - name: string
-      result: string
+    - name: str
+      result: str
       base: list(eu|us|usland|eucjk|uscjk|uslandcjk)
-      background: string
+      background: str
 startup: once
 boot: manual_only
 image: docker.io/sztupy/nextion-hassio
