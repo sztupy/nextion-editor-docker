@@ -105,7 +105,7 @@ SaveFile() {
 
   ; Enter the first item of the menu - TFT Ouput
   SendInput {Alt down}
-  Sleep 100 ;
+  Sleep 500 ;
   SendInput {Alt up}
   Sleep 500 ;
   SendInput {Enter}

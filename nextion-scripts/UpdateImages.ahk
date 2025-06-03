@@ -16,17 +16,17 @@ PicturePanel.SetFocus() ;
 PicturePanel.Click("right") ;
 
 SendInput {Down}
-Sleep 100
+Sleep 500
 SendInput {Down}
-Sleep 100
+Sleep 500
 SendInput {Down}
-Sleep 100
+Sleep 500
 SendInput {Down}
-Sleep 100
+Sleep 500
 SendInput {Down}
-Sleep 100
+Sleep 500
 SendInput {Down}
-Sleep 100
+Sleep 500
 SendInput {Enter}
 
 ; Confirm

@@ -44,7 +44,9 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    
    You can have multiple configs set up, but the app will only generate one TFT file at a time. You can point your `main` value to another config, and re-run the Add On if you need to generate the TFT file for multiple configs.
 
-5. Run the addon. Wait for it to finish, as it might take a while. The log output should finish with something like:
+5. Run the addon. Wait for it to finish, as it might take a while.
+   
+   The log output should finish with something like:
    
    ```
    Save file 
@@ -52,6 +54,14 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    Wait for save to finish 
    Waiting for object AutomationId=buttonX2 to disappear...
    ```
+   
+   If you get an error like:
+   
+   ```
+   Could not find element AutomationID=pp1 AND Name=Yes Exiting
+   ```
+
+   you should restart the add-on, so it can retry
 
 6. Go to Devices, ESPHome, and select the NSPanel device. Once opened change the "Update TFT Display - Model" setting to "Use nextion_update_url", then finally click the "Press" button on "Update TFT Display"
   
