@@ -27,4 +27,4 @@ schema:
 startup: once
 boot: manual_only
 image: docker.io/sztupy/nextion-hassio
-version: 0.0.1
+version: 0.0.2

@@ -9,7 +9,7 @@ BACKGROUND=$(cat /data/options.json | jq -r ".configs[] | select(.name == \"${MA
 
 cd ~wineuser
 
-git clone https://github.com/sztupy/NSPanel_HA_Blueprint
+git clone --depth 1 https://github.com/sztupy/NSPanel_HA_Blueprint
 
 cd NSPanel_HA_Blueprint/hmi
 
