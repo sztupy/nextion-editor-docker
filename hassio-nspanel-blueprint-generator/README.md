@@ -4,6 +4,8 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
 > **Note:** This addon currently only supports `amd64` as a platform, for example a Home Assistant setup installed on an Intel NUC. This will not yet work on any ARM based computers, for example on Raspberry Pi based installs, nor on Home Assitant Green!
 
+> **Note:** This addon requires around 2-3 GB of disk space to install
+
 ## Setup
 
 1. When generating your ESPHome config for your NSPanel, make sure you set a custom nextion url. For example:
