@@ -2,10 +2,10 @@
 
 set -eux
 
-MAIN_CONFIG=$(cat /data/options.json | jq -r '.main')
-RESULT=$(cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .result")
-BASE=$(cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .base")
-BACKGROUND=$(cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background")
+MAIN_CONFIG=$(sudo cat /data/options.json | jq -r '.main')
+RESULT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .result")
+BASE=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .base")
+BACKGROUND=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background")
 
 cd ~wineuser
 
@@ -18,7 +18,7 @@ sudo cp nspanel_eu.HMI /app/input/input.hmi
 
 cd dev/ui
 
-cp /haconfig/$BACKGROUND back.png
+sudo cp /haconfig/$BACKGROUND back.png
 ./generate_images.sh back.png
 sudo cp -a eu /app/input/pics
 
