@@ -1,5 +1,5 @@
-Nextion Editor Docker
-=====================
+Nextion Editor Docker / Hassio NSPanel Bluperint Background generator
+=====================================================================
 
 Nextion Editor running under Wine 10.0 & Docker to allow Nextion TFT files to be built in a more automated way. Also includes AutoHotKey with UIAutomation support to allow Nextion's GUI to be controlled from scripts.
 
@@ -12,6 +12,12 @@ Hassio Add-on link:
 Please see the [Add-on readme](hassio-nspanel-blueprint-generator/README.md) for more details about the Home Assistant add-on
 
 ![Example image of Nextion Editor displaying NSPanel Blueprint](images/example.png)
+
+<div align="center">
+  <img title="Example screenshot with inverted colour settings" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_white.jpg" width="270"/>
+  <img title="Example screenshot with library background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_library.jpg" width="270"/>
+  <img title="Example screenshot with bedroom background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_bedroom.jpg" width="270"/>
+</div>
 
 This repository contains the following projects:
 
@@ -63,7 +69,7 @@ Once started you can connect to this container via Remote Desktop on `localhost:
 
 You can also use UIAutomation Viewer to plan your macro if you want to automate what you're doing.
 
-## `scripts`
+## `nextion-scripts`
 
 The container includes AHK and UIAutomation to automate some common tasks without needing a GUI or any manual intervention. Most scripts will start up Nextion, click around the GUI to do their work, and finally put the resulting files under `/app` so they can then be downloaded from the container. While the scripts generally try to be clever, this is not always possible and might resort to mouse clicks on specific locatons on the screen. Generally all scripts expect Nextion to run under a resolution of 1024x768.
 
@@ -120,7 +126,7 @@ then in the container's shell run:
 
 This will create screenshots of what's happening on the screen in your local folder that you can check later.
 
-## `hassio-nspanel-blueprint-generator`
+## `nextion-hassio` / `hassio-nspanel-blueprint-generator`
 
 Install link for the Add-on:
 
