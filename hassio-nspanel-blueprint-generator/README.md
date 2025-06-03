@@ -46,25 +46,56 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
 5. Run the addon. Wait for it to finish, as it might take a while.
    
-   The log output should finish with something like:
+   A successful run will have logs like this:
    
    ```
+   + ./update_images.sh
+   Waiting for application to boot
+   Waiting for object AutomationID=pp2 AND Name=OK ...
+   Waiting for object AutomationID=pp2 AND Name=OK ...
+   Waiting for object AutomationID=pp2 AND Name=OK ...
+   Waiting for object AutomationID=pp2 AND Name=OK ...
+   Error during enumeration  retrying...
+   Waiting for object AutomationID=pp2 AND Name=OK ...
+   Started processing
+   Waiting for Page Panels to load 
+   Waiting for element: Page Panels 
+   Waiting for object AutomationId=colListBox1 AND IsEnabled=1 ...
+   Clicking at location 
+   Deleting old images 
+   Waiting for object AutomationId=picListBox0 AND IsEnabled=1 ...
+   Confirm to delete 
+   Waiting for object AutomationID=pp1 AND Name=Yes ...
+   Add images 
+   Import dialog 
+   Waiting for object LocalizedControlType=dialog AND Name=Open ...
+   Waiting for import 
+   Waiting for object AutomationID=pp2 AND Name=OK ...
+   Waiting for object AutomationID=pp2 AND Name=OK ...
    Save file 
    Waiting for object AutomationId=buttonX2 AND Name=Output ...
    Wait for save to finish 
    Waiting for object AutomationId=buttonX2 to disappear...
+   Waiting for object AutomationId=buttonX2 to disappear...
+   + sudo mkdir -p /haconfig/www
+   + sudo cp input/output.tft /haconfig/www/nspanel_living_room.tft
+   + sudo cp input/output.hmi /haconfig/www/nspanel_living_room.tft.hmi
    ```
    
-   If you get an error like:
+   If however you get an error like at any point:
    
    ```
    Could not find element AutomationID=pp1 AND Name=Yes Exiting
    ```
+   
+   then you should restart the add-on, so it can retry.
+   
+   If it still doesn't work after 2-3 retries, and always hangs at the same place, then [please create a bugreport](https://github.com/sztupy/nextion-editor-docker/issues) with the contents of your log and the type of machine you have.
 
-   you should restart the add-on, so it can retry
-
-6. Go to Devices, ESPHome, and select the NSPanel device. Once opened change the "Update TFT Display - Model" setting to "Use nextion_update_url", then finally click the "Press" button on "Update TFT Display"
-  
+6. If it did generate the file, then go to Settings -> Devices -> ESPHome, and select the NSPanel device.
+   
+   Once opened change the "Update TFT Display - Model" setting to "Use nextion_update_url", then finally click the "Press" button on "Update TFT Display"
+   
    ![Screenshot of the ESPHome settings you need to make](https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/hassio-nspanel-blueprint-generator/esphome-update.png)
 
 7. Wait for the Upload to finish. If all goes well your panel will now use the updated background.
