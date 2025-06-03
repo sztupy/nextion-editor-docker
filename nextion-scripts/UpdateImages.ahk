@@ -8,6 +8,8 @@ FileAppend Waiting for Page Panels to load `n, *
 ; Clicking the boot page
 ClickElementAt("Page Panels", "AutomationId=colListBox1 AND IsEnabled=1", 10, 15) ;
 
+Sleep 2000
+
 ; Deleting old images
 FileAppend Deleting old images `n, *
 
@@ -15,6 +17,7 @@ PicturePanel := FindElement("AutomationId=picListBox0 AND IsEnabled=1")
 PicturePanel.SetFocus() ;
 PicturePanel.Click("right") ;
 
+Sleep 500
 SendInput {Down}
 Sleep 500
 SendInput {Down}
@@ -77,11 +80,13 @@ Warning := FindElement("AutomationID=pp2 AND Name=OK") ;
 Warning.SetFocus() ;
 Warning.Click("left") ;
 
-Sleep 500
+Sleep 3000
 
 ; Initiating save
 
 Click 250 250
+
+Sleep 500
 
 SaveFile() ;
 
