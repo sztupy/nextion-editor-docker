@@ -110,6 +110,18 @@ docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./update_
 
 Outputs will be `output.hmi` and `output.tft`
 
+### Batch updating fonts in a HMI file
+
+The following script will load up a HMI file, then swap all fonts with the ones provied between `0.zi` and `12.zi`. Also updates program.S and replaces `int charset=1` with `int charset=2`
+
+Name your file `input.hmi`. Put images you wish to upload to a folder named `fonts`. Both should be in the current directory
+
+```sh
+docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./update_fonts.sh
+```
+
+Outputs will be `output.hmi` and `output.tft`
+
 ### Debugging scripts
 
 To debug any of the scripts you can do:
