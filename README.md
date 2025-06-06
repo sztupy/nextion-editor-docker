@@ -122,6 +122,16 @@ docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./update_
 
 Outputs will be `output.hmi` and `output.tft`
 
+### Misc
+
+Other scripts. Can be called with:
+
+```sh
+docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./run-script.sh <ScriptName.ahk>
+```
+
+* `UsLandscapeConvert.ahk`: Converts NSPanel EU version to NSPanel US Landscape version
+
 ### Debugging scripts
 
 To debug any of the scripts you can do:
