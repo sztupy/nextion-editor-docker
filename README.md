@@ -24,6 +24,7 @@ This repository contains the following projects:
 * `nextion-editor`: Base docker image containing Nextion Editor and automtion helper scripts
 * `nextion-scripts`: Docker image additonally supporting some basic actions to be done in an automated way against HMI files
 * `nextion-hassio`: The docker container for the Home Assistant Add-on
+* `nextion-hmi2txt`: Nextion2Text from https://github.com/MMMZZZZ/Nextion2Text/tree/master in a container
 * `hassio-nspanel-blueprint-generator`: Home Assistant Add-on to help build NSPanel TFT files with different backgrounds locally
 
 ## `nextion-editor`
