@@ -47,7 +47,7 @@ esac
 cd dev/ui
 
 sudo cp /haconfig/$BACKGROUND back.png
-./generate_images.sh back.png
+../scripts/generate_images.sh back.png
 sudo cp -a $PICTURE_DIR /app/input/pics
 
 ls -la /app/input/pics
