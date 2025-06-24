@@ -54,7 +54,7 @@ ls -la /app/input/pics
 
 cd /app
 
-./update_images.sh
+./update_images.sh png 42
 
 sudo mkdir -p /haconfig/www
 

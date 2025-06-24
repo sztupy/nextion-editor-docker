@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.0] - 2025-06-24
+
+### Changed
+
+- Add support for the cleaned up HMI
+
+
 ## [0.0.7] - 2025-06-07
 
 ### Changed
@@ -19,7 +26,8 @@
 
 - Added support for non-eu NSPanel configs
 
-[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.6...HEAD
+[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.7...v0.1.0
 [0.0.7]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.6...v0.0.7
 [0.0.6]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.5...v0.0.6
 [0.0.5]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.4...v0.0.5

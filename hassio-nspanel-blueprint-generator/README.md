@@ -55,7 +55,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    A successful run will have logs like this:
 
    ```
-   + ./update_images.sh
+   + ./update_images.sh png 42
    Waiting for application to boot
    Waiting for object AutomationID=pp2 AND Name=OK ...
    Waiting for object AutomationID=pp2 AND Name=OK ...

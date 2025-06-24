@@ -57,16 +57,16 @@ FileAppend Import dialog `n, *
 
 Dialog := FindElement("LocalizedControlType=dialog AND Name=Open") ;
 
+argv := GetArgs() ;
+Extension := argv[1]
+Amount := argv[2]
+
 SendInput "C:\pics\0.png"{Space}
 
 Sleep 100
 
-Loop, 47 {
-    if (A_Index = 32) {
-        SendInput "C:\pics\%A_Index%.jpg"{Space}
-    } Else {
-        SendInput "C:\pics\%A_Index%.png"{Space}
-    }    
+Loop %Amount% {
+    SendInput "C:\pics\%A_Index%.%Extension%"{Space}
     Sleep 100
 }
 
