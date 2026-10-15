@@ -9,34 +9,18 @@ BACKGROUND=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \
 
 cd ~wineuser
 
-git clone --depth 1 https://github.com/sztupy/NSPanel_HA_Blueprint
+git clone --depth 1 https://github.com/edwardtfn/NSPanel-Easy
 
-cd NSPanel_HA_Blueprint/hmi
+cd NSPanel-Easy/hmi
 
 sudo mkdir -p /app/input
 
-PICTURE_DIR=eu
-
 case $BASE in
-  eu)
-    sudo cp nspanel_eu.HMI /app/input/input.hmi
+  landscape)
+    sudo cp nspanel_landscape.HMI /app/input/input.hmi
     ;;
-  us)
-    sudo cp nspanel_us.HMI /app/input/input.hmi
-    PICTURE_DIR=us
-    ;;
-  usland)
-    sudo cp nspanel_us_land.HMI /app/input/input.hmi
-    ;;
-  eucjk)
-    sudo cp nspanel_CJK_eu.HMI /app/input/input.hmi
-    ;;
-  uscjk)
-    sudo cp nspanel_CJK_us.HMI /app/input/input.hmi
-    PICTURE_DIR=us
-    ;;
-  uslandcjk)
-    sudo cp nspanel_CJK_us_land.HMI /app/input/input.hmi
+  portrait)
+    sudo cp nspanel_portrait.HMI /app/input/input.hmi
     ;;
   *)
     echo "Invalid base"
@@ -44,17 +28,17 @@ case $BASE in
     ;;
 esac
 
-cd dev/ui
+cd dev/pics
 
 sudo cp /haconfig/$BACKGROUND back.png
-../scripts/generate_images.sh back.png
-sudo cp -a $PICTURE_DIR /app/input/pics
+./generate_images.sh $BASE
+sudo cp -a $BASE /app/input/pics
 
 ls -la /app/input/pics
 
 cd /app
 
-./update_images.sh png 42
+./update_images.sh png 95
 
 sudo mkdir -p /haconfig/www
 
