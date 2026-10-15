@@ -1,7 +1,7 @@
-Nextion Editor Docker / Hassio NSPanel Bluperint Background generator
+Nextion Editor Docker / Hassio NSPanel Easy Background generator
 =====================================================================
 
-Nextion Editor running under Wine 10.0 & Docker to allow Nextion TFT files to be built in a more automated way. Also includes AutoHotKey with UIAutomation support to allow Nextion's GUI to be controlled from scripts.
+Nextion Editor running under Wine 11.0 & Docker to allow Nextion TFT files to be built in a more automated way. Also includes AutoHotKey with UIAutomation support to allow Nextion's GUI to be controlled from scripts.
 
 Docker hub link: https://hub.docker.com/r/sztupy/nextion-editor
 
@@ -11,10 +11,9 @@ Hassio Add-on link:
 
 Please see the [Add-on readme](hassio-nspanel-blueprint-generator/README.md) for more details about the Home Assistant add-on
 
-![Example image of Nextion Editor displaying NSPanel Blueprint](images/example.png)
+![Example image of Nextion Editor displaying NSPanel Easy](images/example.png)
 
 <div align="center">
-  <img title="Example screenshot with inverted colour settings" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_white.jpg" width="270"/>
   <img title="Example screenshot with library background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_library.jpg" width="270"/>
   <img title="Example screenshot with bedroom background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_bedroom.jpg" width="270"/>
 </div>
@@ -39,8 +38,8 @@ docker/build.sh
 
 This will download the following files:
 
-* Nextion Editor
-* Windows KB971513 Patch (required to support UIAutomation under Wine 10.0)
+* Nextion Editor 1.68.2
+* Windows KB971513 Patch (required to support UIAutomation under Wine 11.0)
 * AutoHotKey 1.1
 * Pulovers Macro Editor (specifically a bloatware-removed version)
 * UIAViewer for AHK
@@ -88,7 +87,7 @@ docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./compile
 
 Outputs will be `output.hmi` and `output.tft`
 
-### Update the version number in an NSPanel Blueprint HMI file
+### Update the version number in an NSPanel Easy HMI file
 
 Name your file `input.hmi` in your current directory
 
@@ -100,12 +99,12 @@ Outputs will be `output.hmi` and `output.tft`
 
 ### Batch updating images in a HMI file
 
-The following script will load up a HMI file, remove all images from it, then re-import them from a directory. Once updated it will save the HMI file and compile it as well to TFT. The script will import images `0.png` to `42.png` from this folder. You can change the extension and the amount of images to import by updating the parameters appropriately. All images need to have the same extension however.
+The following script will load up a HMI file, remove all images from it, then re-import them from a directory. Once updated it will save the HMI file and compile it as well to TFT. The script will import images `0.png` to `133.png` from this folder. You can change the extension and the amount of images to import by updating the parameters appropriately. All images need to have the same extension however.
 
 Name your file `input.hmi`. Put images you wish to upload to a folder named `pics`. Both should be in the current directory
 
 ```sh
-docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./update_images.sh png 42
+docker run -it --rm -v ${PWD}:/app/input sztupy/nextion-scripts:latest ./update_images.sh png 133
 ```
 
 Outputs will be `output.hmi` and `output.tft`

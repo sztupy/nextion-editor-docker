@@ -15,16 +15,18 @@ options:
   configs:
     - name: living-room
       result: nspanel_living_room.tft
-      base: eu
-      background: /nspanel-generator/living_room.png
+      base: portrait
+      background_dark: /nspanel-generator/living_room.png
+      background_light: /nspanel-generator/living_room.png
 schema:
   main: str
   configs:
     - name: str
       result: str
-      base: list(eu|us|usland|eucjk|uscjk|uslandcjk)
-      background: str
+      base: list(landscape|portrait)
+      background_dark: str
+      background_light: str
 startup: once
 boot: manual_only
 image: docker.io/sztupy/nextion-hassio
-version: 0.1.0
+version: 0.2.0
