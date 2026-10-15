@@ -18,10 +18,10 @@ sudo mkdir -p /app/input
 
 case $BASE in
   landscape)
-    sudo cp nspanel_landscape.HMI /app/input/input.hmi
+    sudo cp nspanel_landscape.hmi /app/input/input.hmi
     ;;
   portrait)
-    sudo cp nspanel_portrait.HMI /app/input/input.hmi
+    sudo cp nspanel_portrait.hmi /app/input/input.hmi
     ;;
   *)
     echo "Invalid base"
