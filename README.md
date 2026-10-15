@@ -26,6 +26,17 @@ This repository contains the following projects:
 * `nextion-hassio`: The docker container for the Home Assistant Add-on
 * `nextion-hmi2txt`: Nextion2Text from https://github.com/MMMZZZZ/Nextion2Text/tree/master in a container
 * `hassio-nspanel-blueprint-generator`: Home Assistant Add-on to help build NSPanel TFT files with different backgrounds locally
+* `workbench`: Optional Nextion Editor 1.68.2 browser workspace and isolated TFT builds, with bounded resource measurements
+
+## Browser workbench (optional)
+
+The [workbench guide](workbench/README.md) describes an additional image for editing
+HMI files and using the Debug simulator in a browser. It includes persistent
+workspaces, Unicode clipboard input, HMI/TFT downloads, and a Python CLI for
+isolated builds with validated results and failure diagnostics.
+
+Linux amd64 Docker and a dedicated x86 QEMU VM on Apple Silicon have been tested.
+The existing images, scripts, and Home Assistant add-on keep their current behavior.
 
 ## `nextion-editor`
 

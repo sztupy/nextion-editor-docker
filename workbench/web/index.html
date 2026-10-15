@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nextion Editor</title>
+<style>:root{color-scheme:dark}*{box-sizing:border-box}body{margin:0;background:#151318;color:#f4f1f5;font:14px -apple-system,BlinkMacSystemFont,sans-serif}header{padding:12px 18px;display:flex;gap:16px;align-items:center;flex-wrap:wrap;border-bottom:1px solid #49404c}strong{margin-right:auto}a{color:#ffadb3}button,input{font:inherit;padding:6px 10px;background:#29232d;color:inherit;border:1px solid #56495c;border-radius:6px}iframe{width:100%;height:calc(100vh - 105px);border:0}small{display:block;padding:8px 18px;color:#c7bbc9}.paste{display:flex;gap:8px}#notice{color:#ffc0c5}</style>
+<header><strong>Nextion Editor <span id="version"></span></strong><span id="state">Starting</span><a id="hmi" href="project.hmi" download>Download HMI</a><a id="tft" href="project.tft" download>Download TFT</a><div class="paste"><input id="text" aria-label="Clipboard text" placeholder="Unicode text" maxlength="4096"><button id="paste">Copy to clipboard</button></div></header>
+<small><span id="help">Save in the Editor before downloading HMI. Generate TFT with File → TFT file output. Copy text above, then press Ctrl+V in the Editor.</span> <span id="notice" aria-live="polite"></span></small>
+<iframe title="Nextion Editor desktop" src="vnc.html?autoconnect=1&resize=scale&show_dot=1&path=websockify"></iframe>
+<script>
+const requestedLanguage=new URLSearchParams(location.search).get('lang');
+const language=(requestedLanguage||navigator.language||'en').toLowerCase().startsWith('ko')?'ko':'en';
+const strings={
+ en:{hmi:'Download HMI',tft:'Download TFT',paste:'Copy to clipboard',placeholder:'Unicode text',label:'Clipboard text',desktop:'Nextion Editor desktop',help:'Save in the Editor before downloading HMI. Generate TFT with File → TFT file output. Copy text above, then press Ctrl+V in the Editor.',copied:'Copied. Press Ctrl+V in the Editor.',copyFailed:'Copy failed. Check the connection.',ready:'Ready to edit',failed:'Startup failed',starting:'Starting',disconnected:'Checking connection'},
+ ko:{hmi:'HMI 받기',tft:'TFT 받기',paste:'클립보드에 복사',placeholder:'한글 텍스트',label:'한글 붙여넣기',desktop:'Nextion Editor 화면',help:'Editor에서 저장한 HMI를 받을 수 있어요. TFT는 File → TFT file output에서 생성해요. 한글은 위에서 복사한 뒤 Editor의 입력 칸에서 Ctrl+V로 붙여넣어요.',copied:'복사했어요. Editor에서 Ctrl+V를 눌러주세요.',copyFailed:'복사하지 못했어요. 연결 상태를 확인해주세요.',ready:'편집 준비 완료',failed:'실행 실패',starting:'시작 중',disconnected:'연결 확인 중'}
+}[language];
+document.documentElement.lang=language;
+for(const id of ['hmi','tft','paste','help'])document.getElementById(id).textContent=strings[id];
+document.querySelector('#text').placeholder=strings.placeholder;
+document.querySelector('#text').setAttribute('aria-label',strings.label);
+document.querySelector('iframe').title=strings.desktop;
+document.querySelector('#state').textContent=strings.starting;
+document.querySelector('#paste').onclick=async()=>{try{const r=await fetch('/api/paste',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:document.querySelector('#text').value})});if(!r.ok)throw Error();document.querySelector('#notice').textContent=strings.copied}catch{document.querySelector('#notice').textContent=strings.copyFailed}};
+async function status(){try{const r=await fetch('/api/status',{cache:'no-store'});if(!r.ok)throw Error();const s=await r.json();document.querySelector('#version').textContent=s.editorVersion||'';document.querySelector('#state').textContent=strings[s.state]||strings.starting}catch{document.querySelector('#state').textContent=strings.disconnected}}status();setInterval(status,5000);
+</script></html>

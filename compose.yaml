@@ -1,0 +1,15 @@
+services:
+  editor:
+    image: ${NEXTION_IMAGE:-nextion-workbench:1.68.2-slim}
+    platform: linux/amd64
+    ports:
+      - "127.0.0.1:${NEXTION_PORT:-6080}:6080"
+    volumes:
+      - ./workspace:/workspace
+    shm_size: 128m
+    cpus: 1.5
+    mem_limit: 3g
+    stop_grace_period: 15s
+    environment:
+      NEXTION_WEB: "1"
+    restart: "no"

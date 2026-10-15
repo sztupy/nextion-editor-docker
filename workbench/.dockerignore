@@ -1,0 +1,12 @@
+*
+!Dockerfile
+!runtime.py
+!metrics.py
+!compile.ahk
+!bootstrap.ahk
+!windows.ahk
+!web_proxy.py
+!web/
+!web/**
+!downloads/
+!downloads/nextion-1.68.2.zip
