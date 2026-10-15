@@ -1,4 +1,4 @@
-FROM sztupy/nextion-editor:latest
+FROM sztupy/nextion-editor:1.68.2
 
 COPY . /app
 

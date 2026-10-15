@@ -5,7 +5,8 @@ set -eux
 MAIN_CONFIG=$(sudo cat /data/options.json | jq -r '.main')
 RESULT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .result")
 BASE=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .base")
-BACKGROUND=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background")
+BACKGROUND_LIGHT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background_light")
+BACKGROUND_DARK=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background_dark")
 
 cd ~wineuser
 
@@ -30,15 +31,20 @@ esac
 
 cd dev/pics
 
-sudo cp /haconfig/$BACKGROUND back.png
+sudo cp /haconfig/$BACKGROUND_LIGHT background/background_light_$BASE.png
+sudo cp /haconfig/$BACKGROUND_DARK background/background_dark_$BASE.png
 ./generate_images.sh $BASE
 sudo cp -a $BASE /app/input/pics
 
 ls -la /app/input/pics
 
+COUNT=${ls /app/input/pics | sort -n | tail -1 | tr -cd '[0-9]'}
+
+echo Number of pics: $COUNT
+
 cd /app
 
-./update_images.sh png 95
+./update_images.sh png $COUNT
 
 sudo mkdir -p /haconfig/www
 

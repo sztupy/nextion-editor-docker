@@ -1,15 +1,15 @@
 # NSPanel Easy Background Generator
 
-This add-on allows you to generate custom TFT files for your NSPanel when using NSPanel Easy, mainly by allowing replacing the background images:
+This add-on allows you to generate custom TFT files for your NSPanel when using [NSPanel Easy](https://github.com/edwardtfn/NSPanel-Easy), mainly by allowing replacing the background images:
 
 <div align="center">
   <img title="Example screenshot with library background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_library.jpg" width="270"/>
   <img title="Example screenshot with bedroom background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_bedroom.jpg" width="270"/>
 </div>
 
-> **Note:** This addon currently only supports `amd64` as a platform, for example a Home Assistant setup installed on an Intel NUC. This will not yet work on any ARM based computers, for example on Raspberry Pi based installs, nor on Home Assitant Green!
+> **Note:** This addon currently only supports `amd64` as a platform, for example a Home Assistant setup installed on an Intel NUC. This will not work on any ARM based computers, for example on Raspberry Pi based installs, nor on Home Assitant Green!
 
-> **Note:** This addon requires around 2-3 GB of disk space to install, and at least 4GB of RAM to function properly, but 8GB is recommended.
+> **Note:** This addon requires around 2-3 GB of disk space to install, and at least 4GB of RAM to function properly, but 8GB is highly recommended.
 
 ## Setup
 
