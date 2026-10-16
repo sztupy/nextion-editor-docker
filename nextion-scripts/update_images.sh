@@ -8,7 +8,7 @@ cp -a input/pics /home/wineuser/.wine/drive_c/
 cp *.ahk /home/wineuser/.wine/drive_c/data/ahk/uia
 cd /home/wineuser/.wine/drive_c/data/ahk/uia
 
-wine 'C:\data\nextion\NextionEditor.exe' 'C:\data\input.hmi' &
+wine 'C:\data\nextion\Nextion Editor.exe' 'C:\data\input.hmi' &
 
 wine ../AutoHotkeyU32.exe ResetWarning.ahk
 

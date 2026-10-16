@@ -33,12 +33,12 @@ cd dev/pics
 
 sudo cp /haconfig/$BACKGROUND_LIGHT background/background_light_$BASE.png
 sudo cp /haconfig/$BACKGROUND_DARK background/background_dark_$BASE.png
-./generate_images.sh $BASE
+bash generate_images.sh $BASE
 sudo cp -a $BASE /app/input/pics
 
 ls -la /app/input/pics
 
-COUNT=${ls /app/input/pics | sort -n | tail -1 | tr -cd '[0-9]'}
+COUNT=$(ls /app/input/pics | sort -n | tail -1 | tr -cd '[0-9]')
 
 echo Number of pics: $COUNT
 
