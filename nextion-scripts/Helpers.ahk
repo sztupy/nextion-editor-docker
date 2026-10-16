@@ -4,7 +4,7 @@ FindElement(expr) {
   startTime := A_TickCount
   UIA := UIA_Interface() ;
   Root := UIA.GetRootElement() ;
-  el := Null ;  
+  el := Null ;
 
   while (!el && (A_tickCount - startTime < 60000)) {
     FileAppend Waiting for object %expr% ...`n, *
@@ -52,14 +52,14 @@ ResetWarning() {
 Args( CmdLine := "", Skip := 0 ) {
   ; By SKAN,  http://goo.gl/JfMNpN,  CD:23/Aug/2014 | MD:24/Aug/2014
   Local pArgs := 0, nArgs := 0, A := []
-  
-  pArgs := DllCall( "Shell32\CommandLineToArgvW", "WStr",CmdLine, "PtrP",nArgs, "Ptr" ) 
 
-  Loop % ( nArgs ) 
-     If ( A_Index > Skip ) 
-       A[ A_Index - Skip ] := StrGet( NumGet( ( A_Index - 1 ) * A_PtrSize + pArgs ), "UTF-16" )  
+  pArgs := DllCall( "Shell32\CommandLineToArgvW", "WStr",CmdLine, "PtrP",nArgs, "Ptr" )
 
-  Return A,   A[0] := nArgs - Skip,   DllCall( "LocalFree", "Ptr",pArgs )  
+  Loop % ( nArgs )
+     If ( A_Index > Skip )
+       A[ A_Index - Skip ] := StrGet( NumGet( ( A_Index - 1 ) * A_PtrSize + pArgs ), "UTF-16" )
+
+  Return A,   A[0] := nArgs - Skip,   DllCall( "LocalFree", "Ptr",pArgs )
 }
 
 GetArgs() {
@@ -107,11 +107,11 @@ SaveFile() {
   SendInput {Alt down}
   Sleep 500 ;
   SendInput {Alt up}
-  Sleep 500 ;
+  Sleep 1000 ;
   SendInput {Enter}
-  Sleep 500 ;
+  Sleep 1000 ;
   SendInput {Enter}
-  Sleep 500 ;
+  Sleep 1000 ;
 
   FileAppend % "Save file `n", *
 

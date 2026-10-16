@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.2] - 2026-10-16
+
+### Changed
+
+- Change timings on TFT save
+
 ## [0.3.1] - 2026-10-16
 
 ### Changed
@@ -52,7 +58,8 @@
 
 - Added support for non-eu NSPanel configs
 
-[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.1...HEAD
+[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.2...HEAD
+[0.3.2]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.2.1...v0.3.0
 [0.2.1]: https://github.com/sztupy/nextion-editor-docker/compare/v0.2.0...v0.2.1
