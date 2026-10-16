@@ -18,11 +18,7 @@ PicturePanel.SetFocus() ;
 Sleep 1000
 PicturePanel.Click("right") ;
 Sleep 1000
-SendInput {Up}
-Sleep 1000
-SendInput {Up}
-Sleep 1000
-SendInput {Enter}
+ClickElementAt("Image context options", "AutomationId=picListBox0 AND IsEnabled=1", 180, 145) ;
 
 ; Confirm
 
