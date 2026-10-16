@@ -95,10 +95,12 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
    ```
    substitutions:
-     nextion_update_url: "http://homeassistant.local:8123/local/nspanel_living_room.tft"
+     nextion_update_url: "http://homeassistant.local:8123/local/nspanel_living_room"
    ```
 
    If you have multiple devices with different backgrounds, make sure each uses a separate `result` link.
+
+   NSPanel Easy will then download the file from `http://homeassistant.local:8123/local/nspanel_living_room/nspanel_landscape.tft` (or portrait for US devices)
 
 5. Rebuild your ESPHome settings and install the updated settings to your NSPanel
 

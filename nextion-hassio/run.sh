@@ -74,7 +74,7 @@ fi
 
 ./update_images.sh png $COUNT
 
-sudo mkdir -p /haconfig/www
+sudo mkdir -p /haconfig/www/$RESULT
 
-sudo cp input/output.tft /haconfig/www/$RESULT
-sudo cp input/output.hmi /haconfig/www/$RESULT.hmi
+sudo cp input/output.tft /haconfig/www/$RESULT/nspanel_$BASE.tft
+sudo cp input/output.hmi /haconfig/www/$RESULT/nspanel_$BASE.hmi

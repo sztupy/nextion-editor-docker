@@ -11,7 +11,7 @@ configuration:
         description: The name of the configuration. You need to enter this in the "Configuration to build" section above
       result:
         name: Result file name
-        description: The name of the file that will be generated. Will be added to "/config/www/<result>". Make sure to add ".tft" as the extension. Once generated it'll be available at "http://homeassistant.local:8123/local/<result>", and this is what you should set up in the "nextion_update_url" config in ESP Builder.
+        description: The name of the file that will be generated. Will be added to "/config/www/<result>". Once generated it'll be available at "http://homeassistant.local:8123/local/<result>", and this is what you should set up in the "nextion_update_url" config in ESP Builder.
       base:
         name: NSPanel orientation
         description: Use "landscape" for "EU" and "US Landscape" systems. Use "portrait" for "US" systems
