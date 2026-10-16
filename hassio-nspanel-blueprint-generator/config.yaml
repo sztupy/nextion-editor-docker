@@ -16,17 +16,21 @@ options:
     - name: living-room
       result: nspanel_living_room.tft
       base: portrait
-      background_dark: /nspanel-generator/living_room.png
-      background_light: /nspanel-generator/living_room.png
+      background:
+        dark:
+        light:
+        splash:
 schema:
   main: str
   configs:
     - name: str
       result: str
       base: list(landscape|portrait)
-      background_dark: str
-      background_light: str
+      background:
+        dark: str?
+        light: str?
+        splash: str?
 startup: once
 boot: manual_only
 image: docker.io/sztupy/nextion-hassio
-version: 0.2.0
+version: 0.3.0

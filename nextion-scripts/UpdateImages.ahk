@@ -15,21 +15,13 @@ FileAppend Deleting old images `n, *
 
 PicturePanel := FindElement("AutomationId=picListBox0 AND IsEnabled=1")
 PicturePanel.SetFocus() ;
+Sleep 1000
 PicturePanel.Click("right") ;
-
-Sleep 500
-SendInput {Down}
-Sleep 500
-SendInput {Down}
-Sleep 500
-SendInput {Down}
-Sleep 500
-SendInput {Down}
-Sleep 500
-SendInput {Down}
-Sleep 500
-SendInput {Down}
-Sleep 500
+Sleep 1000
+SendInput {Up}
+Sleep 1000
+SendInput {Up}
+Sleep 1000
 SendInput {Enter}
 
 ; Confirm

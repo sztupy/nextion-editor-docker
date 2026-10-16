@@ -5,8 +5,9 @@ set -eux
 MAIN_CONFIG=$(sudo cat /data/options.json | jq -r '.main')
 RESULT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .result")
 BASE=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .base")
-BACKGROUND_LIGHT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background_light")
-BACKGROUND_DARK=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background_dark")
+BACKGROUND_LIGHT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background.light")
+BACKGROUND_DARK=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background.dark")
+BACKGROUND_SPLASH=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background.splash")
 
 cd ~wineuser
 
@@ -31,8 +32,18 @@ esac
 
 cd dev/pics
 
-sudo cp /haconfig/$BACKGROUND_LIGHT background/background_light_$BASE.png
-sudo cp /haconfig/$BACKGROUND_DARK background/background_dark_$BASE.png
+if [[ -n "$BACKGROUND_LIGHT" ]]; then
+  sudo cp /haconfig/$BACKGROUND_LIGHT background/background_light_$BASE.png
+fi
+
+if [[ -n "$BACKGROUND_DARK" ]]; then
+  sudo cp /haconfig/$BACKGROUND_DARK background/background_dark_$BASE.png
+fi
+
+if [[ -n "$BACKGROUND_SPLASH" ]]; then
+  sudo cp /haconfig/$BACKGROUND_SPLASH background/background_splash_$BASE.png
+fi
+
 bash generate_images.sh $BASE
 sudo cp -a $BASE /app/input/pics
 
@@ -42,7 +53,24 @@ COUNT=$(ls /app/input/pics | sort -n | tail -1 | tr -cd '[0-9]')
 
 echo Number of pics: $COUNT
 
+echo Injecting missing files
+
+for i in $( seq 0 $COUNT ); do
+  if [ ! -e /app/input/pics/$i.png ]; then
+    echo "Image ID #${i} missing. Filling with placeholder"
+    cp misc/placeholder.png /app/input/pics/$i.png
+  fi
+done
+
 cd /app
+
+if [[ -n "${MANUAL:-}" ]]; then
+  sleep infinity
+fi
+
+if [[ -n "${DEBUG:-}" ]]; then
+  ./dump_screenshots.sh &
+fi
 
 ./update_images.sh png $COUNT
 

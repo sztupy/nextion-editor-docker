@@ -1,4 +1,4 @@
-FROM scottyhardy/docker-wine:stable-11.0
+FROM scottyhardy/docker-wine:stable-10.0
 
 COPY data /home/wineuser/data
 
@@ -7,19 +7,19 @@ ENV XVFB_SERVER ":95"
 ENV XVFB_SCREEN "0"
 ENV XVFB_RESOLUTION "1024x768x24"
 ENV DISPLAY ":95"
-ENV WINEARCH "wow64"
+ENV WINEARCH "win32"
 
 RUN apt-get update \
     && DEBIAN_FRONTEND="noninteractive" apt-get install -y --no-install-recommends \
-    imagemagick jq \
+    imagemagick jq python3 python3-pip python3-yaml \
     && rm -rf /var/lib/apt/lists/*
 
 RUN (RDP_SERVER=invalid /usr/bin/entrypoint || true) && \
     export DISPLAY=:0 && \
     (Xvfb :0 -screen 0 1024x768x24 > /dev/null 2>&1 &) && \
-    sudo --user=wineuser WINEARCH=wow64 winetricks --unattended -q --force winxp cmd dotnet35 && \
-    sudo --user=wineuser WINEARCH=wow64 winetricks winxp && \
-    sudo --user=wineuser WINEARCH=wow64 wine /home/wineuser/data/windows-en-us-kb971513-x64.exe /quiet && \
+    sudo --user=wineuser WINEARCH=win32 winetricks --unattended -q --force winxp cmd dotnet35 && \
+    sudo --user=wineuser winetricks winxp && \
+    sudo --user=wineuser wine /home/wineuser/data/windows-en-us-kb971513.exe /quiet && \
     mv /home/wineuser/data /home/wineuser/.wine/drive_c && \
     cd /home/wineuser/.wine/drive_c/data && \
     mkdir ahk && unzip ahk.zip -d ahk && \

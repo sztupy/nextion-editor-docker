@@ -9,8 +9,8 @@ if ! [ -f data/ahk.zip ]; then
     curl -L --output data/ahk.zip https://www.autohotkey.com/download/1.1/AutoHotkey_1.1.37.02.zip
 fi
 
-if ! [ -f data/windows-en-us-kb971513-x64.exe ]; then
-    curl -L --output data/windows-en-us-kb971513-x64.exe https://catalog.s.download.windowsupdate.com/msdownload/update/software/updt/2009/10/windows-en-us-kb971513_c7f25538ee38cf66a13c49dd02350d9111b69079.exe
+if ! [ -f data/windows-en-us-kb971513.exe ]; then
+    curl -L --output data/windows-en-us-kb971513.exe https://catalog.s.download.windowsupdate.com/msdownload/update/software/updt/2009/10/windows-en-us-kb971513_c18df80f512a6d9cea206825b981e33c0973abec.exe
 fi
 
 if ! [ -f data/pulovers.zip ]; then
