@@ -76,7 +76,11 @@ done
 cd /app
 
 if [[ -n "${MANUAL:-}" ]]; then
-  sleep infinity
+  [ ! -f /var/run/xrdp/xrdp-sesman.pid ] || sudo rm -f /var/run/xrdp/xrdp-sesman.pid
+  [ ! -f /var/run/xrdp/xrdp.pid ] || sudo rm -f /var/run/xrdp/xrdp.pid
+
+  sudo /usr/sbin/xrdp-sesman
+  exec sudo /usr/sbin/xrdp --nodaemon
 fi
 
 if [[ -n "${DEBUG:-}" ]]; then
