@@ -28,3 +28,12 @@ configuration:
           splash:
             name: Splash screen background
             description: The image file for the splash screen. Should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png".  Keep empty if you want to keep the default splash screen.
+  create_debug_screenshots:
+    name: Generate debug screenshots
+    description: Generates debug screenshots once a second to allow debugging of failures
+  no_processing:
+    name: Disable processing
+    description: Don't process images but keep container running. Useful if RDP is enabled to allow manual debugging
+
+network:
+  3389/tcp: "RDP port for debug/manual use"

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.4.0] - 2026-10-16
+
+### Changed
+
+- Add support for debugging through RDP
+
 ## [0.3.2] - 2026-10-16
 
 ### Changed
@@ -58,7 +64,8 @@
 
 - Added support for non-eu NSPanel configs
 
-[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.2...HEAD
+[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.2...v0.4.0
 [0.3.2]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.1...v0.3.2
 [0.3.1]: https://github.com/sztupy/nextion-editor-docker/compare/v0.3.0...v0.3.1
 [0.3.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.2.1...v0.3.0

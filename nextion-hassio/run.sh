@@ -9,6 +9,17 @@ BACKGROUND_LIGHT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.nam
 BACKGROUND_DARK=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background.dark // empty")
 BACKGROUND_SPLASH=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${MAIN_CONFIG}\") | .background.splash // empty")
 
+ENABLE_DEBUG=$(sudo cat /data/options.json | jq -r '.create_debug_screenshots')
+ENABLE_MANUAL=$(sudo cat /data/options.json | jq -r '.no_processing')
+
+if [[ "$ENABLE_DEBUG" == "true" ]]; then
+  export DEBUG=true
+fi
+
+if [[ "$ENABLE_MANUAL" == "true" ]]; then
+  export MANUAL=true
+fi
+
 cd ~wineuser
 
 git clone --depth 1 https://github.com/edwardtfn/NSPanel-Easy
