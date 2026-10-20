@@ -40,7 +40,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    Config documentation:
    * `name`: Custom name for your config. Make sure it is unique. Prefer only using lowercase letters, and dashes
    * `result`: The name of the file to generate. This will be accessible at `http://homeassistant.local:8123/local/<name>`. This needs to match the setting you will set up at point 4 later in this guide.
-   * `base`: The type of NSPanel TFT to generate. Available options are: `portrait` for EU, and `landscape` for US devices.
+   * `base`: The type of NSPanel TFT to generate. Available options are: `landscape` for EU and US Landscape, and `portrait` for US devices.
    * `background`: The background images to use. Make sure these images are put in the `/config` folder for your Home Assistant install, se point #1 above. You don't need to provide all three images in which case the default background will be kept.
 
    You can have multiple configurations set up, but the app will only generate one TFT file at a time. You can point your `main` value to the `name` value of another config, and re-run the Add On, to generate the TFT file for that particular config.
