@@ -28,15 +28,19 @@ if [[ -n "${DEBUG:-}" ]]; then
   /app/dump_screenshots.sh &
 fi
 
-for NAME in $(sudo cat /data/options.json | jq -r '.configs[].name'); do
-  for BASE in $(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .base | to_entries[] | select(.value).key"); do
+for NAME in $(sudo cat /data/options.json | jq -r '.configs[] | select(.enabled) | .name'); do
+  for BASE_FULL in $(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .base | to_entries[] | select(.value).key"); do
     RETRY_COUNT=$RETRIES
+    echo
+    echo
     echo ==============================
-    echo Running for $NAME / $BASE
+    echo Running for $NAME / $BASE_FULL
     echo Attempts left: $RETRY_COUNT
-    while ! timeout -v $TIMEOUT bash /app/build_tft.sh $NAME $BASE; do
+    echo
+    while ! timeout -v $TIMEOUT bash /app/build_tft.sh $NAME $BASE_FULL; do
       ((RETRY_COUNT=RETRY_COUNT-1))
       echo Attempts left: $RETRY_COUNT
+      echo
       if [[ $RETRY_COUNT -le 0 ]]; then
         echo No more attempts, failing
         exit 1

@@ -30,17 +30,34 @@ configuration:
             description: US devices mounted sideways with buttons on the left, or EU devices mounted upside down
       background:
         name: Background config
-        description: The background images that should be replaced
+        description: The background images that should be replaced. Files should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png". Keep empty any of the values if you want to keep the default background for that option.
         fields:
-          dark:
-            name: Dark mode background
-            description: The image file for the dark mode. Should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png". Keep empty if you want to keep the default dark background.
-          light:
-            name: Light mode background
-            description: The image file for the light mode. Should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png".  Keep empty if you want to keep the default light background.
-          splash:
-            name: Splash screen background
-            description: The image file for the splash screen. Should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png".  Keep empty if you want to keep the default splash screen.
+          landscape:
+            name: Landscape images
+            description: Images for landscape (EU) builds
+            fields:
+              dark:
+                name: Dark mode background
+                description: The image file for the dark mode on landscape.
+              light:
+                name: Light mode background
+                description: The image file for the light mode on landscape.
+              splash:
+                name: Splash screen background
+                description: The image file for the splash screen on landscape.
+          portrait:
+            name: Landscape images
+            description: Images for portrait (US) builds
+            fields:
+              dark:
+                name: Dark mode background
+                description: The image file for the dark mode on portrait.
+              light:
+                name: Light mode background
+                description: The image file for the light mode on portrait.
+              splash:
+                name: Splash screen background
+                description: The image file for the splash screen on portrait.
   retries:
     name: Retries
     description: How many times to retry each configuration before giving up
@@ -52,7 +69,7 @@ configuration:
     description: Generates debug screenshots once a second to allow debugging of failures
   no_processing:
     name: Disable processing
-    description: Don't process images but keep container running. Useful if RDP is enabled to allow manual debugging
+    description: Don't process images but keep container running. Useful if RDP is enabled in the network settings to allow manual debugging. Note: when enabled only the first active element is generated before RDP opens.
 
 network:
   3389/tcp: "RDP port for debug/manual use"

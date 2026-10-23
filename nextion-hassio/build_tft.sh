@@ -7,10 +7,6 @@ BASE_FULL=$2
 
 cd ~wineuser/NSPanel-Easy/hmi
 
-BACKGROUND_LIGHT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .background.light // empty")
-BACKGROUND_DARK=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .background.dark // empty")
-BACKGROUND_SPLASH=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .background.splash // empty")
-
 sudo rm -rf /app/input/input.hmi
 sudo rm -rf /app/input/pics
 sudo rm -rf /app/input/fonts
@@ -36,6 +32,10 @@ case $BASE_FULL in
     exit 1
     ;;
 esac
+
+BACKGROUND_LIGHT=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .background.${BASE}.light // empty")
+BACKGROUND_DARK=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .background.${BASE}.dark // empty")
+BACKGROUND_SPLASH=$(sudo cat /data/options.json | jq -r ".configs[] | select(.name == \"${NAME}\") | .background.${BASE}.splash // empty")
 
 pushd dev/pics
 

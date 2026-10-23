@@ -23,9 +23,14 @@ options:
         portrait: false
         landscape_inverted: false
       background:
-        dark: nspanel/living_room.png
-        light:
-        splash:
+        landscape:
+          dark: rooms/landscape/living_room.png
+          light:
+          splash:
+        portrait:
+          dark:
+          light:
+          splash:
   retries: 5
   timeout: 300
 schema:
@@ -36,13 +41,18 @@ schema:
       name: str
       result: str
       base:
-        landscape: bool
-        portrait: bool
-        landscape_inverted: bool
+        landscape: bool?
+        portrait: bool?
+        landscape_inverted: bool?
       background:
-        dark: str?
-        light: str?
-        splash: str?
+        landscape:
+          dark: str?
+          light: str?
+          splash: str?
+        portrait:
+          dark: str?
+          light: str?
+          splash: str?
   retries: int(1,100)
   timeout: int(1,6000)
   create_debug_screenshots: bool?
