@@ -1,0 +1,45 @@
+name: Generate TFT
+run-name: Generate TFTs for the next version
+on:
+  workflow_dispatch:
+
+jobs:
+  generateTft:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - id: checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.head_ref }}
+
+      - id: cleanup
+        run: |
+          rm -rf hmi
+          mkdir hmi
+
+      - id: build_tft
+        uses: kohlerdominik/docker-run-action@v2
+        with:
+          image: sztupy/nextion-hassio:0.5.0
+          volumes: |
+            "${{ github.workspace }}/options.json:/data/options.json"
+            "${{ github.workspace }}/images/backgrounds:/haconfig/images"
+            "${{ github.workspace }}/hmi:/haconfig/www"
+          options: |
+            --hostname="nextion-editor"
+
+      - id: generate_commit
+        run: |
+          # Don't commit the HMIs, as they take too much space
+          find hmi -name "*.hmi" -exec rm "{}" ";"
+
+          # Set up commit message
+          echo "message=Generated fresh TFTs" >> "$GITHUB_OUTPUT"
+
+      - id: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "${{ steps.update_version.outputs.message }}"
+          branch: "dev"
