@@ -25,7 +25,7 @@
     },
     {
       "name": "rooms/bedroom",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": true
@@ -45,7 +45,7 @@
     },
     {
       "name": "rooms/bedroom_alt",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": false
@@ -60,7 +60,7 @@
     },
     {
       "name": "rooms/conservatory",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": false
@@ -75,7 +75,7 @@
     },
     {
       "name": "rooms/library",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": false
@@ -90,7 +90,7 @@
     },
     {
       "name": "rooms/hallway",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": true
@@ -110,7 +110,7 @@
     },
     {
       "name": "rooms/kitchen",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": true
@@ -130,7 +130,7 @@
     },
     {
       "name": "rooms/office",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": true
@@ -150,7 +150,7 @@
     },
     {
       "name": "abstract/galaxy",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": false
@@ -165,7 +165,7 @@
     },
     {
       "name": "abstract/bokeh",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": true
@@ -185,7 +185,7 @@
     },
     {
       "name": "abstract/clouds",
-      "enabled": false,
+      "enabled": true,
       "base": {
         "landscape": true,
         "portrait": true

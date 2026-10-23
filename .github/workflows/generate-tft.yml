@@ -9,7 +9,8 @@ jobs:
     permissions:
       contents: write
     steps:
-      # Default docker version has a bug running 32 bit apps, need to update: https://github.com/docker/cli/issues/6963
+      # Default docker version has a bug running 32 bit apps, so need to update: https://github.com/docker/cli/issues/6963
+      # this can be removed once the default installed version is updated
       - id: docker_setup
         name: Set up Docker
         uses: docker/setup-docker-action@v5
@@ -23,8 +24,7 @@ jobs:
         name: Cleanup
         run: |
           rm -rf hmi
-          mkdir hmi
-          docker info
+          mkdir -p hmi
 
       - id: build_tft
         uses: kohlerdominik/docker-run-action@v2.2.0
@@ -50,5 +50,5 @@ jobs:
       - id: commit
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "${{ steps.update_version.outputs.message }}"
+          commit_message: "${{ steps.generate_commit.outputs.message }}"
           branch: "dev"
