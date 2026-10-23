@@ -15,6 +15,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - id: cleanup
+        name: Cleanup
         run: |
           rm -rf hmi
           mkdir hmi
@@ -25,13 +26,14 @@ jobs:
           run: /app/run.sh
           image: sztupy/nextion-hassio:0.5.0
           volumes: |
-            "${{ github.workspace }}/options.json:/data/options.json"
-            "${{ github.workspace }}/images/backgrounds:/haconfig/images"
-            "${{ github.workspace }}/hmi:/haconfig/www"
-          options: |
+            ${{ github.workspace }}/options.json:/data/options.json
+            ${{ github.workspace }}/images/backgrounds:/haconfig/images
+            ${{ github.workspace }}/hmi:/haconfig/www
+          options:
             --hostname="nextion-editor"
 
       - id: generate_commit
+        name: Generate Commit
         run: |
           # Don't commit the HMIs, as they take too much space
           find hmi -name "*.hmi" -exec rm "{}" ";"
