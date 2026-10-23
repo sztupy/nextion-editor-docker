@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.0] - 2026-10-23
+
+### Changed
+
+- Can now build multiple configurations in one go
+
 ## [0.4.1] - 2026-10-16
 
 ### Changed
@@ -39,7 +45,8 @@
 
 - Added support for non-eu NSPanel configs
 
-[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.4.1...HEAD
+[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.4.1...v0.5.0
 [0.4.1]: https://github.com/sztupy/nextion-editor-docker/compare/v0.1.0...v0.4.1
 [0.1.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.7...v0.1.0
 [0.0.7]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.6...v0.0.7

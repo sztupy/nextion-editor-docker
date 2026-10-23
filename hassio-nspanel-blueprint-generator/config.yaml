@@ -27,7 +27,7 @@ options:
         light:
         splash:
   retries: 5
-  timeout: 120
+  timeout: 300
 schema:
   repository: str
   branch: str
