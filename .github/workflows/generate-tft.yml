@@ -9,6 +9,11 @@ jobs:
     permissions:
       contents: write
     steps:
+      # Default docker version has a bug running 32 bit apps, need to update: https://github.com/docker/cli/issues/6963
+      - id: docker_setup
+        name: Set up Docker
+        uses: docker/setup-docker-action@v5
+
       - id: checkout
         uses: actions/checkout@v3
         with:
