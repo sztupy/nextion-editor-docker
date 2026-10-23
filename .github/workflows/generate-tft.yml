@@ -9,11 +9,6 @@ jobs:
     permissions:
       contents: write
     steps:
-      # required to run 32 bit apps
-      - id: setup_qemu
-        name: Set up QEMU
-        uses: docker/setup-qemu-action@v4
-
       - id: checkout
         uses: actions/checkout@v3
         with:
@@ -24,6 +19,7 @@ jobs:
         run: |
           rm -rf hmi
           mkdir hmi
+          docker info
 
       - id: build_tft
         uses: kohlerdominik/docker-run-action@v2.2.0
