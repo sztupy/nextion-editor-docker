@@ -1,4 +1,4 @@
-FROM sztupy/nextion-scripts:0.3.2
+FROM sztupy/nextion-scripts:0.5.0
 
 COPY . /app
 

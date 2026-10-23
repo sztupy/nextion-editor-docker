@@ -1,20 +1,33 @@
 configuration:
-  main:
-    name: Configuration to build
-    description: Enter the name of the configuration you wish to build when pressing START
+  repository:
+    name: Repository URL
+    description: Repository to download NSPanel Easy from
+  branch:
+    name: Branch name
+    description: Branch or tag name to build
   configs:
     name: Configurations
-    description: List of various pre-set configurations. Once set up, enter the name of the config you actually wish to build in the field above
+    description: List of various pre-set configurations
     fields:
+      enabled:
+        name: Enabled
+        description: Whether to build this configuration or not
       name:
         name: Config name
-        description: The name of the configuration. You need to enter this in the "Configuration to build" section above
-      result:
-        name: Result file name
-        description: The name of the file that will be generated. Will be added to "/config/www/<result>". Once generated it'll be available at "http://homeassistant.local:8123/local/<result>", and this is what you should set up in the "nextion_update_url" config in ESP Builder.
+        description: The name of the build. This is the name of the file that will be generated as well. Will be added to "/config/www/<name>". Once generated it'll be available at "http://homeassistant.local:8123/local/<name>", and this is what you should set up in the "nextion_update_url" config in ESP Builder.
       base:
-        name: NSPanel orientation
-        description: Use "landscape" for "EU" and "US Landscape" systems. Use "portrait" for "US" systems
+        name: NSPanel orientations to build
+        description: Which orientations to build
+        fields:
+          landscape:
+            name: Landscape (EU)
+            description: EU devices and US devices mounted sideways with buttons on the right
+          portrait:
+            name: Portrait (US)
+            description: US devices
+          landscape_inverted:
+            name: Inverted landscape
+            description: US devices mounted sideways with buttons on the left, or EU devices mounted upside down
       background:
         name: Background config
         description: The background images that should be replaced
@@ -28,6 +41,12 @@ configuration:
           splash:
             name: Splash screen background
             description: The image file for the splash screen. Should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png".  Keep empty if you want to keep the default splash screen.
+  retries:
+    name: Retries
+    description: How many times to retry each configuration before giving up
+  timeout:
+    name: Timeout
+    description: How long each attempt to allow to run before giving up in seconds. Note: this is not a total timeout and will apply to each attempt separately
   create_debug_screenshots:
     name: Generate debug screenshots
     description: Generates debug screenshots once a second to allow debugging of failures

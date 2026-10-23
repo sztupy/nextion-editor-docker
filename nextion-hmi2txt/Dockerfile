@@ -2,7 +2,7 @@ FROM alpine/curl:latest
 
 RUN mkdir -p /usr/src/app
 
-RUN curl https://raw.githubusercontent.com/edwardtfn/Nextion2Text/refs/heads/master/Nextion2Text.py > /usr/src/app/Nextion2Text.py
+RUN curl https://raw.githubusercontent.com/edwardtfn/Nextion2Text/61da2a1925b5e08b9ca8fee414e76fca42a69211/Nextion2Text.py > /usr/src/app/Nextion2Text.py
 
 FROM python:3
 
