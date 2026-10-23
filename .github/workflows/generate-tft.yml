@@ -4,21 +4,23 @@ on:
   workflow_dispatch:
 
 jobs:
-  logLatestRelease:
+  generateTft:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - id: checkout
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
 
-      - id: Cleanup old files
+      - id: cleanup
         run: |
           rm -rf hmi
           mkdir hmi
 
-      - uses: kohlerdominik/docker-run-action@v2
+      - id: build_tft
+        uses: kohlerdominik/docker-run-action@v2
         with:
           image: sztupy/nextion-hassio:0.5.0
           volumes: |
@@ -28,7 +30,7 @@ jobs:
           options: |
             --hostname="nextion-editor"
 
-      - id: Generate commit details
+      - id: generate_commit
         run: |
           # Don't commit the HMIs, as they take too much space
           find hmi -name "*.hmi" -exec rm "{}" ";"
@@ -36,7 +38,8 @@ jobs:
           # Set up commit message
           echo "message=Generated fresh TFTs" >> "$GITHUB_OUTPUT"
 
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - id: commit
+        uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "${{ steps.update_version.outputs.message }}"
           branch: "dev"
