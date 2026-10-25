@@ -33,7 +33,7 @@ configuration:
         description: The background images that should be replaced. Files should be put inside the "/config" folder, e.g. a "panel/filename.png" entry should be present in "/config/panel/filename.png". Keep empty any of the values if you want to keep the default background for that option.
         fields:
           landscape:
-            name: Landscape images
+            name: Landscape (EU) images
             description: Images for landscape (EU) builds
             fields:
               dark:
@@ -46,7 +46,7 @@ configuration:
                 name: Splash screen background
                 description: The image file for the splash screen on landscape.
           portrait:
-            name: Landscape images
+            name: Portrait (US) images
             description: Images for portrait (US) builds
             fields:
               dark:
