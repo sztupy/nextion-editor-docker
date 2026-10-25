@@ -7,9 +7,11 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
   <img title="Example screenshot with bedroom background" src="https://raw.githubusercontent.com/sztupy/nextion-editor-docker/refs/heads/main/images/example_bedroom.jpg" width="270"/>
 </div>
 
-> **Note:** This addon currently only supports `amd64` as a platform, for example a Home Assistant setup installed on an Intel NUC. This will not work on any ARM based computers, for example on Raspberry Pi based installs, nor on Home Assitant Green!
+> **Note:** This addon currently only supports `amd64` as a platform, for example a Home Assistant setup installed on an Intel NUC. This will not properly work on any ARM based computers, for example on Raspberry Pi based installs, nor on Home Assitant Green!
 
 > **Note:** This addon requires around 2-3 GB of disk space to install, and at least 4GB of RAM to function properly, but 8GB is highly recommended.
+
+> **Note:** If you don't have the local resources to use this Add On, you can try out [GitHub Actions](../README.md#github-actions) to build your TFT files
 
 ## Setup
 
@@ -24,24 +26,22 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 2. Install this addon. Open up the configuration and set it up the following way:
 
    ```yaml
-   main: "living-room"
    configs:
-     - name: living-room
-       result: nspanel_living_room.tft
-       base: portrait
+     - name: living_room
+       enabled: true
+       base:
+         landscape: true
        background:
-         dark: nspanel-generator/living_room.png
-         light: nspanel-generator/living_room.png
-         splash: nspanel-generator/living_room.png
+         landscape:
+           dark: nspanel-generator/living_room.png
+           splash: nspanel-generator/living_room.png
    ```
 
    Config documentation:
-   * `name`: Custom name for your config. Make sure it is unique. Prefer only using lowercase letters, and dashes
-   * `result`: The name of the file to generate. This will be accessible at `http://homeassistant.local:8123/local/<name>`. This needs to match the setting you will set up at point 4 later in this guide.
-   * `base`: The type of NSPanel to install. Available options are: `portrait`, `landscape`.
-   * `background`: The background images to use. Make sure these images are put in the `/config` folder for your Home Assistant install, se point #1 above. You don't need to provide all three images in which case the default backround will be kept.
-
-   You can have multiple configurations set up, but the app will only generate one TFT file at a time. You can point your `main` value to the `name` value of another config, and re-run the Add On, to generate the TFT file for that particular config.
+   * `name`: Custom name for your config, and the file it will generate. This will be accessible at `http://homeassistant.local:8123/local/<name>`. This needs to match the setting you will set up at point 4 later in this guide.
+   * `base`: The type of NSPanel to build. Available options are: `portrait`, `landscape`.
+   * `background`: The background images to use. Make sure these images are put in the `/config` folder for your Home Assistant install, se point #1 above. You don't need to provide all three images in which case the default backround will be kept. You should set up approriate backgrounds for both portrait and landscape designs.
+   * `enabled`: Whether to build this configuration or not. The add-on will build all configurations that have the enabled flag set
 
 3. Run the addon. Wait for it to finish, as it might take a while.
 
@@ -77,8 +77,8 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    Waiting for object AutomationId=buttonX2 to disappear...
    Waiting for object AutomationId=buttonX2 to disappear...
    + sudo mkdir -p /haconfig/www
-   + sudo cp input/output.tft /haconfig/www/nspanel_living_room.tft
-   + sudo cp input/output.hmi /haconfig/www/nspanel_living_room.tft.hmi
+   + sudo cp input/output.tft /haconfig/www/living_room/nspanel_landscape.tft
+   + sudo cp input/output.hmi /haconfig/www/living_room/nspanel_landscape.hmi
    ```
 
    If however you get an error like at any point:
@@ -95,12 +95,12 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
    ```
    substitutions:
-     nextion_update_url: "http://homeassistant.local:8123/local/nspanel_living_room"
+     nextion_update_url: "http://homeassistant.local:8123/local/living_room"
    ```
 
    If you have multiple devices with different backgrounds, make sure each uses a separate `result` link.
 
-   NSPanel Easy will then download the file from `http://homeassistant.local:8123/local/nspanel_living_room/nspanel_landscape.tft` (or portrait for US devices)
+   NSPanel Easy will then download the file from `http://homeassistant.local:8123/local/living_room/nspanel_landscape.tft` (or portrait for US devices)
 
 5. Rebuild your ESPHome settings and install the updated settings to your NSPanel
 

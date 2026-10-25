@@ -63,13 +63,15 @@ configuration:
     description: How many times to retry each configuration before giving up
   timeout:
     name: Timeout
-    description: How long each attempt to allow to run before giving up in seconds. Note: this is not a total timeout and will apply to each attempt separately
+    description: |
+      How long each attempt to allow to run before giving up in seconds. Note: this is not a total timeout and will apply to each attempt separately
   create_debug_screenshots:
     name: Generate debug screenshots
     description: Generates debug screenshots once a second to allow debugging of failures
   no_processing:
     name: Disable processing
-    description: Don't process images but keep container running. Useful if RDP is enabled in the network settings to allow manual debugging. Note: when enabled only the first active element is generated before RDP opens.
+    description: |
+      Don't process images but keep container running. Useful if RDP is enabled in the network settings to allow manual debugging. Note: when enabled only the first active element is generated before RDP opens.
 
 network:
   3389/tcp: "RDP port for debug/manual use"
