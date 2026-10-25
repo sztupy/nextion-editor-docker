@@ -1,0 +1,209 @@
+{
+  "repository": "https://github.com/edwardtfn/NSPanel-Easy",
+  "branch": "main",
+  "configs": [
+    {
+      "name": "rooms/living_room",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true,
+        "landscape_inverted": false
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/living_room.png",
+          "light": "",
+          "splash": "images/rooms/landscape/living_room.png"
+        },
+        "portrait": {
+          "dark": "images/rooms/portrait/living_room.png",
+          "light": "",
+          "splash": "images/rooms/portrait/living_room.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/bedroom",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/bedroom.png",
+          "light": "",
+          "splash": "images/rooms/landscape/bedroom.png"
+        },
+        "portrait": {
+          "dark": "images/rooms/portrait/bedroom.png",
+          "light": "",
+          "splash": "images/rooms/portrait/bedroom.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/bedroom_alt",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": false
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/bedroom_alt.png",
+          "light": "",
+          "splash": "images/rooms/landscape/bedroom_alt.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/conservatory",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": false
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/conservatory.png",
+          "light": "",
+          "splash": "images/rooms/landscape/conservatory.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/library",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": false
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/library.png",
+          "light": "",
+          "splash": "images/rooms/landscape/library.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/hallway",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/hallway.png",
+          "light": "",
+          "splash": "images/rooms/landscape/hallway.png"
+        },
+        "portrait": {
+          "dark": "images/rooms/portrait/hallway.png",
+          "light": "",
+          "splash": "images/rooms/portrait/hallway.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/kitchen",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/kitchen.png",
+          "light": "",
+          "splash": "images/rooms/landscape/kitchen.png"
+        },
+        "portrait": {
+          "dark": "images/rooms/portrait/kitchen.png",
+          "light": "",
+          "splash": "images/rooms/portrait/kitchen.png"
+        }
+      }
+    },
+    {
+      "name": "rooms/office",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/rooms/landscape/office.png",
+          "light": "",
+          "splash": "images/rooms/landscape/office.png"
+        },
+        "portrait": {
+          "dark": "images/rooms/portrait/office.png",
+          "light": "",
+          "splash": "images/rooms/portrait/office.png"
+        }
+      }
+    },
+    {
+      "name": "abstract/galaxy",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": false
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/abstract/landscape/galaxy.png",
+          "light": "",
+          "splash": "images/abstract/landscape/galaxy.png"
+        }
+      }
+    },
+    {
+      "name": "abstract/bokeh",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/abstract/landscape/bokeh_dark.png",
+          "light": "images/abstract/landscape/bokeh_light.png",
+          "splash": ""
+        },
+        "portrait": {
+          "dark": "images/abstract/portrait/bokeh_dark.png",
+          "light": "images/abstract/portrait/bokeh_light.png",
+          "splash": ""
+        }
+      }
+    },
+    {
+      "name": "abstract/clouds",
+      "enabled": true,
+      "base": {
+        "landscape": true,
+        "portrait": true
+      },
+      "background": {
+        "landscape": {
+          "dark": "images/abstract/landscape/clouds_dark.png",
+          "light": "images/abstract/landscape/clouds_light.png",
+          "splash": ""
+        },
+        "portrait": {
+          "dark": "images/abstract/portrait/clouds_dark.png",
+          "light": "images/abstract/portrait/clouds_light.png",
+          "splash": ""
+        }
+      }
+    }
+  ],
+  "retries": 5,
+  "timeout": 120
+}

@@ -13,28 +13,51 @@ map:
 ports:
   3389/tcp: null
 options:
-  main: "living-room"
+  repository: https://github.com/edwardtfn/NSPanel-Easy
+  branch: main
   configs:
-    - name: living-room
-      result: nspanel_living_room
-      base: portrait
+    - enabled: true
+      name: living_room
+      base:
+        landscape: true
+        portrait: false
+        landscape_inverted: false
       background:
-        dark: nspanel/living_room.png
-        light:
-        splash:
+        landscape:
+          dark: rooms/landscape/living_room.png
+          light:
+          splash:
+        portrait:
+          dark:
+          light:
+          splash:
+  retries: 5
+  timeout: 300
 schema:
-  main: str
+  repository: str
+  branch: str
   configs:
-    - name: str
+    - enabled: bool
+      name: str
       result: str
-      base: list(landscape|portrait)
+      base:
+        landscape: bool?
+        portrait: bool?
+        landscape_inverted: bool?
       background:
-        dark: str?
-        light: str?
-        splash: str?
+        landscape:
+          dark: str?
+          light: str?
+          splash: str?
+        portrait:
+          dark: str?
+          light: str?
+          splash: str?
+  retries: int(1,100)
+  timeout: int(1,6000)
   create_debug_screenshots: bool?
   no_processing: bool?
 startup: once
 boot: manual_only
 image: docker.io/sztupy/nextion-hassio
-version: 0.4.1
+version: 0.5.0

@@ -2,10 +2,12 @@
 
 export WINEDEBUG=-all
 
-cp input/input.hmi /home/wineuser/.wine/drive_c/data/input.hmi
-cp -a input/fonts /home/wineuser/.wine/drive_c/
+bash /app/_reset.sh
 
-cp *.ahk /home/wineuser/.wine/drive_c/data/ahk/uia
+cp -a input/fonts /home/wineuser/.wine/drive_c/
+cp -f /app/input/input.hmi /home/wineuser/.wine/drive_c/data/input.hmi
+
+cp -f /app/*.ahk /home/wineuser/.wine/drive_c/data/ahk/uia
 cd /home/wineuser/.wine/drive_c/data/ahk/uia
 
 wine 'C:\data\nextion\Nextion Editor.exe' 'C:\data\input.hmi' &
