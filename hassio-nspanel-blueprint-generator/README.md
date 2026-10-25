@@ -1,5 +1,7 @@
 # NSPanel Easy Background Generator
 
+[![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsztupy%2Fnextion-editor-docker)
+
 This add-on allows you to generate custom TFT files for your NSPanel when using [NSPanel Easy](https://github.com/edwardtfn/NSPanel-Easy), mainly by allowing replacing the background images:
 
 <div align="center">
@@ -21,7 +23,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
    > **Note:** Make sure the image is `480x320` in resolution for landscape NSPanels (EU and US Landscape), and `320x480` for portrait (US) versions. The file extensions needs to be `png`, and it should not be transparent.
 
-   > **Note:** You can find a few examples for the portrait orientation [here](https://github.com/sztupy/nextion-editor-docker/tree/main/images/backgrounds)
+   > **Note:** You can find a few examples for EU/landscape orientation [here](https://github.com/sztupy/nextion-editor-docker/tree/main/images/backgrounds)
 
 2. Install this addon. Open up the configuration and set it up the following way:
 
@@ -89,7 +91,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
    then you should restart the add-on, so it can retry.
 
-   If it still doesn't work after a few retries, espcially if it always hangs at the same place, then [please create a bugreport](https://github.com/sztupy/nextion-editor-docker/issues) with the contents of your log and the type of machine you have.
+   If it still doesn't work after a few retries, especially if it always hangs at the same place, then [please create a bugreport](https://github.com/sztupy/nextion-editor-docker/issues) with the contents of your log and the type of machine you have.
 
 4. Update your ESPHome config for your NSPanel, and make sure you set the location to the `<result>` value you set up earlier. For example:
 
@@ -100,7 +102,7 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
 
    If you have multiple devices with different backgrounds, make sure each uses a separate `result` link.
 
-   NSPanel Easy will then download the file from `http://homeassistant.local:8123/local/living_room/nspanel_landscape.tft` (or portrait for US devices)
+   NSPanel Easy will then download the file from `http://homeassistant.local:8123/local/living_room/nspanel_landscape.tft` (or `portrait` for US devices)
 
 5. Rebuild your ESPHome settings and install the updated settings to your NSPanel
 
@@ -109,3 +111,5 @@ This add-on allows you to generate custom TFT files for your NSPanel when using 
    Once opened click the "Press" button on "Update TFT Display"
 
 7. Wait for the Upload to finish. If all goes well your panel will now use the updated background.
+
+8. If you update your NSPanel Easy, make sure to re-build your TFT files one-by-one. The app will always download the latest NSPanel Easy version for building
