@@ -39,7 +39,6 @@ schema:
   configs:
     - enabled: bool
       name: str
-      result: str
       base:
         landscape: bool?
         portrait: bool?
