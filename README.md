@@ -155,3 +155,7 @@ Install link for the Add-on:
 [![Open your Home Assistant instance and show the add add-on repository dialog with a specific repository URL pre-filled.](https://my.home-assistant.io/badges/supervisor_add_addon_repository.svg)](https://my.home-assistant.io/redirect/supervisor_add_addon_repository/?repository_url=https%3A%2F%2Fgithub.com%2Fsztupy%2Fnextion-editor-docker)
 
 Please see the [Add-on readme](hassio-nspanel-blueprint-generator/README.md) for more details
+
+## Github Actions
+
+There is also a GitHub Actions workflow that can run the build automatically. If you cannot run the add-on yourself it might be an alternative to clone this repository, upload your background files into the `images/background` directory, update the `options.json` file to match your requirements, then run the workflow. This would then generate the TFT files into the `hmi` folder of the repository. The `options.json` file has the same schema and support as the Home Assistant Add-On
