@@ -8,6 +8,8 @@ BASE_FULL=$2
 cd ~wineuser/NSPanel-Easy/hmi
 
 sudo rm -rf /app/input/input.hmi
+sudo rm -rf /app/input/output.hmi
+sudo rm -rf /app/input/output.tft
 sudo rm -rf /app/input/pics
 sudo rm -rf /app/input/fonts
 sudo mkdir -p /app/input

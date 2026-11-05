@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.5.3] - 2026-11-05
+
+### Changed
+
+- Fix build being unable to run against tags
+
 ## [0.5.2] - 2026-10-23
 
 ### Changed
@@ -45,7 +51,8 @@
 
 - Added support for non-eu NSPanel configs
 
-[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.5.2...HEAD
+[unreleased]: https://github.com/sztupy/nextion-editor-docker/compare/v0.5.3...HEAD
+[0.5.3]: https://github.com/sztupy/nextion-editor-docker/compare/v0.5.2...v0.5.3
 [0.5.2]: https://github.com/sztupy/nextion-editor-docker/compare/v0.4.1...v0.5.2
 [0.4.1]: https://github.com/sztupy/nextion-editor-docker/compare/v0.1.0...v0.4.1
 [0.1.0]: https://github.com/sztupy/nextion-editor-docker/compare/v0.0.7...v0.1.0

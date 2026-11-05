@@ -22,6 +22,8 @@ cd ~wineuser
 
 git clone --branch $BRANCH --single-branch --depth 1 $REPOSITORY
 
+git checkout -b hassio-working-copy
+
 cd NSPanel-Easy/hmi
 
 if [[ -n "${DEBUG:-}" ]]; then
