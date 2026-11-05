@@ -20,11 +20,13 @@ fi
 
 cd ~wineuser
 
-git clone --branch $BRANCH --single-branch --depth 1 $REPOSITORY
+git clone --branch $BRANCH --single-branch --depth 1 $REPOSITORY NSPanel-Easy
+
+cd NSPanel-Easy
 
 git checkout -b hassio-working-copy
 
-cd NSPanel-Easy/hmi
+cd hmi
 
 if [[ -n "${DEBUG:-}" ]]; then
   /app/dump_screenshots.sh &
